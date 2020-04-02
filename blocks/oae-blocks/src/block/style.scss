@@ -1,0 +1,485 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+ $color-red: #f5231b;
+ $color-orange: #fb3c00;
+ $color-cyan: #25cafa;
+ $color-yellow: #ffd40c;
+ $color-purple: #6d26d3;
+ $color-white: #ffffff;
+ $color-black: #231f20;
+ $color-gray: #f2f2f2;
+ $color-blue: #5eb3e4;
+
+ // Small devices (landscape phones, 576px and up)
+$break-point-extrasmall: 425px;
+$break-point-small: 600px;
+$break-point-medium: 768px;
+$break-point-large: 992px;
+$break-point-extralarge: 1200px;
+
+div.content > *:not([class^="wp-block-oae"]){
+  margin-top:5%;
+  margin-bottom:5%;
+}
+div.content > .wp-block-embed {
+  margin:5%;
+}
+div.content > .wp-block-columns {
+  margin:5% auto;
+}
+
+div[class^="wp-block-oae"], div[class*=" wp-block-oae"] {
+  background-size:cover;
+  background-repeat:no-repeat;
+  z-index:1;
+  overflow:hidden;
+  position:relative;
+
+  @media (max-width: $break-point-medium) {
+    flex-flow: column;
+    max-height:max-content;
+    height:auto;
+  }
+
+   &.overlay {
+     color:$color-white;
+     &::before {
+       content: '';
+       position:absolute;
+       top:0;
+       left:0;
+       bottom:0;
+       right:0;
+     }
+
+     &.cyan::before {
+       background-color:$color-cyan;
+       color:$color-white;
+     }
+
+     &.purple::before {
+       background-color:$color-purple;
+     }
+     &.yellow::before {
+       background-color:$color-yellow;
+     }
+     &.orange::before {
+       background-color:$color-orange;
+     }
+     &.red::before {
+       background-color:$color-red;
+     }
+     &.yellow-orange::before {
+       background-image: linear-gradient($color-yellow, $color-orange);
+     }
+     &.purple-red::before {
+       background-image: linear-gradient($color-purple, $color-red);
+     }
+     &.purple-cyan::before {
+       background-image: linear-gradient($color-purple, $color-cyan);
+     }
+     &.red-purple-ltr::before {
+       background-image: linear-gradient(to right, $color-red, $color-purple);
+     }
+     &.gray-white {
+       color: $color-black;
+       &::before {
+         background-image: linear-gradient($color-gray, $color-white);
+       }
+     }
+     &.hasbg::before {
+       opacity:0.7;
+     }
+  }
+
+  .oae-button {
+    background:$color-white;
+    color: $color-black;
+    padding: 1em;
+    display:block;
+    margin:.3em auto;
+    flex: 1 1 auto;
+    text-align:center;
+    padding: 1em 1.5em;
+    text-transform:uppercase;
+    font-weight:700;
+    font-size:1.2em;
+    text-decoration: none;
+    transition: all 300ms ease-in-out;
+    width:max-content;
+    &:hover {
+      background: $color-purple;
+      color: $color-white;
+    }
+    &.cyan-button {
+      background:$color-blue;
+      color:$color-white;
+      &:hover {
+        background:$color-purple;
+      }
+    }
+    @media (max-width: $break-point-small) {
+      width:200px;
+    }
+  }
+}
+.wp-block-oae-accordion  {
+  display:flex;
+  flex-flow: row nowrap;
+  font-family:sans-serif;
+  height:775px;
+  max-height:100vh;
+  min-height:500px;
+
+  /* VERT ACCORDION */
+  @media (max-width: $break-point-medium) {
+    flex-flow: column nowrap;
+    max-height:100vh !important;
+    height:775px !important;
+  }
+  /* END VERT ACCORDION */
+  .wp-block-oae-accordion-slide {
+    background-size:cover;
+    background-repeat:no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: flex-start;
+    position:relative;
+    flex: 1 1 3em;
+    box-shadow: inset -10px 0 20px -15px $color-black;
+
+    /* Handles any clipping/overflow issues on transition */
+    overflow: hidden;
+    transition: flex-basis 500ms ease-in-out;
+
+    @media (max-width: $break-point-medium) {
+      //flex: 1 1 100%; /* VERT ACCORDION */
+    }
+
+    &:hover {
+      flex-basis: 50%;
+      @media (max-width: $break-point-medium) {
+        flex-basis: 100%;
+      }
+
+      .inner-content {
+        opacity:1;
+      }
+    }
+    .inner-content {
+      opacity:0;
+      width:400px;
+      background:$color-white;
+      color:$color-black;
+      padding:1em 1em 2em;
+      margin:10%;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      display:flex;
+      transition: opacity 500ms ease-in-out;
+      position:relative;
+      @media (max-width: $break-point-medium) {
+        //opacity: 1; /* VERT ACCORDION */
+      }
+      @media (max-width: $break-point-small) {
+        margin:10% auto;
+        width:80%;
+      }
+
+      .accordion-content * {
+        margin:0 0 1em;
+      }
+      h2 {
+        font-size:2.5em;
+        margin:.5em 0;
+        text-transform:uppercase;
+        font-weight:300;
+      }
+      h3 {
+        font-size:1.6em;
+        text-transform:uppercase;
+        font-weight:600;
+      }
+      p {
+        font-size: .9em;
+      }
+      .accordion-button {
+        position:absolute;
+        bottom:0;
+        right:0;
+        background: #5fb2e4;
+        padding:.5em 1em;
+        text-transform:uppercase;
+        font-weight:700;
+        color: $color-white;
+        margin:0;
+        text-decoration: none;
+        cursor:pointer;
+        transition: background 300ms ease-in-out;
+        &:hover {
+          background:$color-purple;
+        }
+      }
+    }
+  }
+}
+
+.wp-block-oae-countdown {
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  padding:5% 0;
+  height:775px;
+  max-height:100vh;
+  min-height:500px;
+
+
+  .inner-content {
+    z-index:5;
+    color:$color-black;
+
+    .button-container {
+      display:flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-around;
+      margin: 1em auto;
+      @media (max-width: $break-point-small) {
+        flex-flow:column;
+      }
+      .oae-button {
+        margin:.3em;
+      }
+
+    }
+    h2 {
+      font-size: 1.5em;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight:900;
+    }
+
+    ul.oae-countdown {
+      display:flex;
+      align-items:center;
+      justify-content: center;
+      flex-flow:row nowrap;
+      font-family:sans-serif;
+      margin:2em 0 0;
+      padding:0;
+      max-width:100%;
+
+      li {
+        display:flex;
+        flex-flow:column nowrap;
+        list-style: none;
+        justify-content: center;
+        flex: 0 0 auto;
+        width:20%;
+        max-width:100px;
+        height:100px;
+        text-align:center;
+        margin:0;
+        padding:0;
+
+        span.oae-countdown-number {
+          font-size: 3em;
+          line-height: 1em;
+          font-weight: 300;
+        }
+        span.oae-countdown-title {
+          font-size: .5em;
+          font-weight:900;
+          text-transform:uppercase;
+        }
+      }
+    }
+  }
+}
+.wp-block-oae-partners {
+  display:flex !important;
+  flex-flow:column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top:5%;
+  padding-bottom:5%;
+  overflow:visible !important;
+  height:775px;
+  max-height:100vh;
+  min-height:500px;
+
+  .row {
+    flex:0 0 auto;
+  }
+  h2 {
+    font-size: 1.5em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-weight:900;
+    text-align:center;
+  }
+  .partner_imgs {
+    display:flex;
+    flex-flow: row wrap;
+    align-items:space-between;
+    justify-content: center;
+  }
+  .partnerimg {
+    flex: 0 0 33%;
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content:center;
+    align-items:center;
+    min-width:150px;
+    padding:1em;
+    img {
+      width:auto;
+      max-width:100%;
+      height:auto;
+      max-height:100px;
+    }
+  }
+  .sidelink {
+    display:flex;
+    flex-flow:column;
+    justify-content:center;
+    align-items:center;
+
+    a {
+      font-size: 1em;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight:900;
+      text-align:center;
+      color:$color-black;
+      transition: all 300ms ease-in-out;
+      white-space: nowrap;
+      &:hover {
+        color:$color-purple;
+        text-decoration: none;
+      }
+    }
+  }
+}
+.wp-block-oae-header {
+  padding:5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-height:500px;
+
+  .header-text {
+    display:flex;
+    flex-flow:column nowrap;
+    justify-content: center;
+
+    h1 {
+      color:$color-blue;
+      letter-spacing: .05em;
+      font-size: 5em;
+      font-weight:900;
+      @media (max-width: $break-point-small) {
+        font-size: 4em;
+      }
+      @media (max-width: $break-point-extrasmall) {
+        font-size: 2em;
+      }
+    }
+    p {
+      font-size: 1.3em;
+      margin-right: 5em;
+      @media (max-width: $break-point-large) {
+        margin-right: 0;
+      }
+    }
+  }
+  .header-img {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    position:relative;
+
+    .img-container {
+      height: 530px;
+      display: block;
+      width: 500px;
+      position: relative;
+      max-width:100%;
+      @media (max-width: $break-point-extrasmall) {
+        height:300px;
+      }
+    }
+
+    img.cycle-fade-img {
+      position:absolute;
+      display:none;
+      height:auto;
+      width: 500px;
+
+      left:-100px;
+      @media (max-width: $break-point-large) {
+        max-width:100%;
+        left:0px;
+      }
+    }
+  }
+}
+.wp-block-oae-color-blocks-container {
+  height:auto;
+
+  display:flex;
+
+  .wp-block-oae-color-block {
+    flex:1 1 50%;
+    height: auto;
+    min-height:300px;
+    width:50%;
+    position:relative;
+    padding:5%;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+
+    @media (max-width: $break-point-medium) {
+      width:100%;
+      align-items: center !important;
+    }
+
+    &:first-of-type {
+      align-items: flex-end;
+    }
+    &:last-of-type {
+      align-items: flex-start;
+    }
+    .oae-color-block-inner {
+      display:block;
+      width:100%;
+      max-width:calc(570px - 15%);
+      flex: 0 0 auto;
+    }
+  }
+
+}
+
+.wp-block-oae-page-header {
+  padding:2em;
+  display:flex;
+  justify-content: flex-end;
+  flex-flow:column nowrap;
+
+  h1 {
+    color: $color-white;
+    font-size:3em;
+    font-weight:700;
+  }
+  &.hasbg {
+    height:350px;
+  }
+}

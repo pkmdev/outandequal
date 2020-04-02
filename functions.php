@@ -26,6 +26,11 @@ if ( is_readable( $cpt_partners ) ) {
 	require_once $cpt_partners;
 }
 
+$oae_blocks = get_template_directory() . '/blocks/oae-blocks/plugin.php';
+if ( is_readable( $oae_blocks ) ) {
+	require_once $oae_blocks;
+}
+
 /**
  * Set the content width based on the theme's design and stylesheet
  *

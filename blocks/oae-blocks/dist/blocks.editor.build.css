@@ -1,0 +1,188 @@
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.block-editor div[class^="wp-block-oae"], .block-editor div[class*=" wp-block-oae"] {
+  z-index: 1;
+  height: auto !important;
+  max-height: -webkit-max-content;
+  max-height: -moz-max-content;
+  max-height: max-content; }
+  .block-editor div[class^="wp-block-oae"].overlay::before, .block-editor div[class*=" wp-block-oae"].overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0; }
+  .block-editor div[class^="wp-block-oae"].overlay.cyan::before, .block-editor div[class*=" wp-block-oae"].overlay.cyan::before {
+    background-color: #25cafa;
+    opacity: 0.5; }
+  .block-editor div[class^="wp-block-oae"].overlay.purple::before, .block-editor div[class*=" wp-block-oae"].overlay.purple::before {
+    background-color: #6d26d3;
+    opacity: 0.5; }
+  .block-editor div[class^="wp-block-oae"].overlay.yellow::before, .block-editor div[class*=" wp-block-oae"].overlay.yellow::before {
+    background-color: #ffd40c;
+    opacity: 0.5; }
+  .block-editor div[class^="wp-block-oae"].overlay.orange::before, .block-editor div[class*=" wp-block-oae"].overlay.orange::before {
+    background-color: #fb3c00;
+    opacity: 0.5; }
+  .block-editor div[class^="wp-block-oae"].overlay.red::before, .block-editor div[class*=" wp-block-oae"].overlay.red::before {
+    background-color: #f5231b;
+    opacity: 0.5; }
+  .block-editor div[class^="wp-block-oae"].overlay.yellow-orange::before, .block-editor div[class*=" wp-block-oae"].overlay.yellow-orange::before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffd40c), to(#fb3c00));
+    background-image: -webkit-linear-gradient(#ffd40c, #fb3c00);
+    background-image: -o-linear-gradient(#ffd40c, #fb3c00);
+    background-image: linear-gradient(#ffd40c, #fb3c00);
+    opacity: 0.5; }
+  .block-editor div[class^="wp-block-oae"].overlay.purple-red::before, .block-editor div[class*=" wp-block-oae"].overlay.purple-red::before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#6d26d3), to(#f5231b));
+    background-image: -webkit-linear-gradient(#6d26d3, #f5231b);
+    background-image: -o-linear-gradient(#6d26d3, #f5231b);
+    background-image: linear-gradient(#6d26d3, #f5231b);
+    opacity: 0.5; }
+  .block-editor div[class^="wp-block-oae"].overlay.purple-cyan::before, .block-editor div[class*=" wp-block-oae"].overlay.purple-cyan::before {
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#6d26d3), to(#25cafa));
+    background-image: -webkit-linear-gradient(#6d26d3, #25cafa);
+    background-image: -o-linear-gradient(#6d26d3, #25cafa);
+    background-image: linear-gradient(#6d26d3, #25cafa);
+    opacity: 0.5; }
+
+.block-editor .wp-block-oae-accordion-slide {
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  color: #000; }
+  .block-editor .wp-block-oae-accordion-slide .inner-content {
+    background: #fff;
+    padding: 1em 1em 2em;
+    margin: 10%;
+    position: relative;
+    -ms-flex: 1 1 80%;
+        flex: 1 1 80%;
+    color: #000; }
+    .block-editor .wp-block-oae-accordion-slide .inner-content * {
+      margin: 0 0 1em; }
+    .block-editor .wp-block-oae-accordion-slide .inner-content h2 {
+      font-size: 2.5em;
+      margin: .5em 0;
+      text-transform: uppercase;
+      font-weight: 300; }
+    .block-editor .wp-block-oae-accordion-slide .inner-content h3 {
+      font-size: 1.6em;
+      text-transform: uppercase;
+      font-weight: 600; }
+    .block-editor .wp-block-oae-accordion-slide .inner-content p {
+      font-size: .9em; }
+    .block-editor .wp-block-oae-accordion-slide .inner-content .accordion-button {
+      float: right;
+      background: #5fb2e4;
+      padding: .5em 1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #fff;
+      margin: 0; }
+
+.block-editor .wp-block-oae-countdown {
+  position: relative; }
+  .block-editor .wp-block-oae-countdown .inner-content {
+    z-index: 5; }
+    .block-editor .wp-block-oae-countdown .inner-content .button-container {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: distribute;
+          justify-content: space-around; }
+      .block-editor .wp-block-oae-countdown .inner-content .button-container > * {
+        margin: .3em;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto; }
+      .block-editor .wp-block-oae-countdown .inner-content .button-container .oae-button {
+        background: #fff;
+        color: #000;
+        padding: 1em 1.5em;
+        display: block;
+        text-align: center; }
+    .block-editor .wp-block-oae-countdown .inner-content ul.oae-countdown {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0; }
+      .block-editor .wp-block-oae-countdown .inner-content ul.oae-countdown li {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+        list-style: none;
+        -ms-flex-pack: center;
+            justify-content: center;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        margin: 0;
+        padding: 0; }
+        .block-editor .wp-block-oae-countdown .inner-content ul.oae-countdown li span.oae-countdown-number {
+          font-size: 2em;
+          line-height: 1em;
+          font-weight: 300; }
+        .block-editor .wp-block-oae-countdown .inner-content ul.oae-countdown li span.oae-countdown-title {
+          font-size: .5em;
+          font-weight: 900;
+          text-transform: uppercase; }
+
+.block-editor .wp-block-oae-color-blocks-container {
+  height: auto;
+  display: block; }
+  .block-editor .wp-block-oae-color-blocks-container .wp-block-oae-color-block {
+    -ms-flex: 1 1 50%;
+        flex: 1 1 50%;
+    height: auto;
+    min-height: 300px;
+    width: 100%;
+    position: relative;
+    padding: 5%;
+    display: block;
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around; }
+    @media (max-width: 768px) {
+      .block-editor .wp-block-oae-color-blocks-container .wp-block-oae-color-block {
+        width: 100%;
+        -ms-flex-align: center !important;
+            align-items: center !important; } }
+    .block-editor .wp-block-oae-color-blocks-container .wp-block-oae-color-block:first-of-type {
+      -ms-flex-align: end;
+          align-items: flex-end; }
+    .block-editor .wp-block-oae-color-blocks-container .wp-block-oae-color-block:last-of-type {
+      -ms-flex-align: start;
+          align-items: flex-start; }
+    .block-editor .wp-block-oae-color-blocks-container .wp-block-oae-color-block .oae-color-block-inner {
+      display: block;
+      width: 100%;
+      max-width: auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto; }

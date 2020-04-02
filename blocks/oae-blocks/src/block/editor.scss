@@ -1,0 +1,204 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+ $break-point-small: 600px;
+ $break-point-medium: 768px;
+ $break-point-large: 992px;
+ $break-point-extralarge: 1200px;
+
+.block-editor {
+   div[class^="wp-block-oae"], div[class*=" wp-block-oae"] {
+     z-index:1;
+     height: auto !important;
+     max-height:max-content;
+
+      &.overlay {
+        &::before {
+          content: '';
+          position:absolute;
+          top:0;
+          left:0;
+          bottom:0;
+          right:0;
+        }
+
+        &.cyan::before {
+          background-color:#25cafa;
+          opacity:0.5;
+        }
+
+        &.purple::before {
+          background-color:#6d26d3;
+          opacity:0.5;
+        }
+        &.yellow::before {
+          background-color:#ffd40c;
+          opacity:0.5;
+        }
+        &.orange::before {
+          background-color:#fb3c00;
+          opacity:0.5;
+        }
+        &.red::before {
+          background-color:#f5231b;
+          opacity:0.5;
+        }
+        &.yellow-orange::before {
+          background-image: linear-gradient(#ffd40c, #fb3c00);
+          opacity:0.5;
+        }
+        &.purple-red::before {
+          background-image: linear-gradient(#6d26d3, #f5231b);
+          opacity:0.5;
+        }
+        &.purple-cyan::before {
+          background-image: linear-gradient(#6d26d3, #25cafa);
+          opacity:0.5;
+        }
+     }
+   }
+  .wp-block-oae-accordion-slide {
+    background-size:cover;
+    background-repeat:no-repeat;
+    position:relative;
+    display:flex;
+    color:#000;
+
+    .inner-content {
+      background:#fff;
+      padding:1em 1em 2em;
+      margin:10%;
+      position:relative;
+      flex:1 1 80%;
+      color:#000;
+
+      * {
+        margin:0 0 1em;
+      }
+      h2 {
+        font-size:2.5em;
+        margin:.5em 0;
+        text-transform:uppercase;
+        font-weight:300;
+      }
+      h3 {
+        font-size:1.6em;
+        text-transform:uppercase;
+        font-weight:600;
+      }
+      p {
+        font-size: .9em;
+      }
+
+      .accordion-button {
+        float:right;
+        background: #5fb2e4;
+        padding:.5em 1em;
+        text-transform:uppercase;
+        font-weight:700;
+        color: #fff;
+        margin:0;
+      }
+    }
+
+  }
+  .wp-block-oae-countdown {
+    position:relative;
+
+    .inner-content {
+      z-index:5;
+
+      .button-container {
+        display:flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-around;
+
+        & > * {
+          margin:.3em;
+          flex: 0 0 auto;
+        }
+        .oae-button {
+          background:#fff;
+          color: #000;
+          padding: 1em 1.5em;
+          display:block;
+          text-align:center;
+        }
+      }
+
+      ul.oae-countdown {
+        display:flex;
+        align-items:center;
+        justify-content: center;
+        flex-flow:row nowrap;
+        font-family:sans-serif;
+        margin:0;
+        padding:0;
+
+        li {
+          display:flex;
+          flex-flow:column nowrap;
+          list-style: none;
+          justify-content: center;
+          flex: 0 0 auto;
+          width:100px;
+          height:100px;
+          text-align:center;
+          margin:0;
+          padding:0;
+
+          span.oae-countdown-number {
+            font-size: 2em;
+            line-height: 1em;
+            font-weight: 300;
+          }
+          span.oae-countdown-title {
+            font-size: .5em;
+            font-weight:900;
+            text-transform:uppercase;
+          }
+        }
+      }
+    }
+  }
+  .wp-block-oae-color-blocks-container {
+    height:auto;
+    display:block;
+
+    .wp-block-oae-color-block {
+      flex:1 1 50%;
+      height: auto;
+      min-height:300px;
+      width:100%;
+      position:relative;
+      padding:5%;
+      display:block;
+      flex-flow: column nowrap;
+      justify-content: space-around;
+
+      @media (max-width: $break-point-medium) {
+        width:100%;
+        align-items: center !important;
+      }
+
+      &:first-of-type {
+        align-items: flex-end;
+      }
+      &:last-of-type {
+        align-items: flex-start;
+      }
+      .oae-color-block-inner {
+        display:block;
+        width:100%;
+        max-width:auto;
+        flex: 0 0 auto;
+      }
+    }
+
+  }
+}
